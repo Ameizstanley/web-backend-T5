@@ -58,6 +58,37 @@ Util.buildClassificationGrid = async function(data){
   return grid
 }
 
+Util.buildDetailView = async function(data) {
+    let detailView
+    if(data.length > 0){
+        detailView = '<div class="detail-container">'
+        data.forEach(views => {
+            detailView = `<div class="detail-image">
+            <img src="${views.inv_image}" alt="image of ${views.inv_make} ${views.inv_image}" />
+            </div>
+            <div class="detail-info">
+            <h2>${views.inv_make} ${views.inv_model} Details</h2>
+            <p class="price"><strong>Price: <strong> ${new Intl.NumberFormat('en-US', {
+                style: 'currency',
+                currency: 'USD'
+            }).format(views.inv_price)}</p>
+            <p><strong>Description:</strong> ${views.inv_description}</p>
+            <p><strong>Color:</strong> ${views.inv}</p>
+            <p><strong>Miles:</strong> ${Number(views.inv_miles).toLocaleString('en-US')} miles</p>
+            </div>
+            </div>
+
+
+            `
+        })
+        detailView += '</div>'
+
+    }else {
+        detailView = `<p class="notice"> Sorry no details was found`
+    }
+    return detailView
+}
+
 
 /* ****************************************
  * Middleware For Handling Errors
@@ -65,6 +96,7 @@ Util.buildClassificationGrid = async function(data){
  * General Error Handling
  **************************************** */
 Util.handleErrors = fn => (req, res, next) => Promise.resolve(fn(req, res, next)).catch(next)
+
 
 
 module.exports =  Util
