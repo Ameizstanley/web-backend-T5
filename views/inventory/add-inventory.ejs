@@ -27,10 +27,10 @@
     <textarea name="inv_description" id="inv_description" required></textarea>
 
     <label for="inv_image">Image Path</label>
-    <input type="url" name="inv_image" id="inv_image" required placeholder="https://example.com/image.jpg">
+    <input type="text" name="inv_image" id="inv_image" required placeholder="/images/vehicles/no-image.png">
 
     <label for="inv_thumbnail">Thumbnail Path</label>
-    <input type="url" name="inv_thumbnail" id="inv_thumbnail" required placeholder="https://example.com/image.jpg">
+    <input type="url" name="inv_thumbnail" id="inv_thumbnail" required placeholder="/images/vehicles/no-image.png">
 
     <label for="inv_price">Price</label>
     <input type="number" name="inv_price" id="inv_price" required step="0.01" min="0">
@@ -42,8 +42,7 @@
     <input type="text" name="inv_color" id="inv_color" required pattern="^[A-Za-z\s]+$">
 
     <label for="classification_id">Classification: </label>
-
-    <%- ClassificationSelect %>
+    <%- classificationSelect %>
     
     <button type="submit">Add Vehicle</button>
 

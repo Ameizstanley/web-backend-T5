@@ -1,5 +1,5 @@
 const invModel = require("../models/inventory-model")
-const utilities = require("../utilities/")
+const utilities = require("../utilities/index")
 
 const invCont = {}
 
@@ -93,11 +93,14 @@ invCont.addClassification = async function (req, res) {
  *  Build add inventory view
  * ************************** */
 
-async function buildAddInventory(req, res, next) {
+invCont.buildAddInventory = async function(req, res, next) {
   let nav = await utilities.getNav()
+  let classificationSelect = await utilities.buildClassificationList();
+
   res.render('inventory/add-inventory', {
     title: 'Add Inventory',
     nav,
+    classificationSelect,
     errors: null
   })
   
@@ -109,7 +112,8 @@ async function buildAddInventory(req, res, next) {
  *  Process adding inventory
  * ************************** */
 
-async function addInventory(req, res) {
+invCont.addInventory = async function (req, res, next) {
+  let nav = await utilities.getNav();
   
   const {inv_make,
         inv_model,
@@ -122,7 +126,7 @@ async function addInventory(req, res) {
         inv_color,
         classification_id} = req.body;
 
-  const reqResult = await invModel.addInventory(
+  const regResult = await invModel.addInventory(
     inv_make,
     inv_model,
     inv_year,
@@ -133,14 +137,44 @@ async function addInventory(req, res) {
     inv_miles,
     inv_color,
     classification_id)
-  
-}if(regResult)
-  
 
 
+  if(regResult){
+  req.flash(
+    'notice',
+    `Congratulations, the ${inv_make} ${inv_model} has been added to inventory`
+  );
+  res.status(201).render("inventory/management", {
+    title: 'Vehicle Management',
+    nav,
+    errors: null,
+  });
+}else{
+  req.flash(
+    'notice',
+    `So sorry, Adding the ${inv_make} ${inv_model} into the Inventory Failed please retry`)
+    let classificationSelect = await utilities.buildClassificationList(classification_id);
+     res.status(501).render('inventory/add-inventory', {
+        title: 'Add New Inventory',
+        nav,
+        classificationSelect,
+        errors: null,
+        inv_make,
+        inv_model,
+        inv_year,
+        inv_description,
+        inv_image,
+        inv_thumbnail,
+        inv_price,
+        inv_miles,
+        inv_color,
+        classification_id
+
+  })
+}
 
 
-
+}
 
 
 
