@@ -249,3 +249,82 @@ img {
   grid-template-columns: 1fr 1fr ;
   
 }
+
+
+.form {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.form input {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1.25rem;
+  border: 2px solid #e0e0e0;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+  box-sizing: border-box;
+}
+
+/* Client-side validation styles */
+.form input:invalid {
+  border-color: #e74c3c;
+  background-color: #fff6f6;
+}
+
+.form input:valid {
+  border-color: #4CAF50;
+  background-color: #f6fff6;
+}
+
+.form input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.form button {
+  width: 100%;
+  padding: 0.875rem;
+  background-color: black;
+  color: white;
+  border: none;
+}
+    .form button:active {
+        transform: translateY(0);
+    }
+
+    .signup-link {
+        max-width: 400px;
+        margin: 1rem auto 0;
+        text-align: center;
+    }
+
+    .signup-link p {
+        color: #666;
+        font-size: 0.95rem;
+    }
+
+    .signup-link a {
+        color: #667eea;
+        text-decoration: none;
+        font-weight: 600;
+        transition: color 0.3s ease;
+    }
+
+    .signup-link a:hover {
+        color: #764ba2;
+        text-decoration: underline;
+    }
