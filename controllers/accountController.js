@@ -1,7 +1,9 @@
 const utilities = require('../utilities')
 const accountModel = require('../models/account-model')
 const jwt = require("jsonwebtoken")
+const bcrypt = require('bcryptjs');
 require("dotenv").config()
+
 
 /* ****************************************
 *  Deliver login view
@@ -90,7 +92,7 @@ async function accountLogin(req, res) {
       return res.redirect("/account/")
     }
     else {
-      req.flash("message notice", "Please check your credentials and try again.")
+      req.flash("notice", "Please check your credentials and try again.")
       res.status(400).render("account/login", {
         title: "Login",
         nav,
@@ -110,7 +112,7 @@ async function buildAccountManagement(req, res, next) {
     nav,
     errors: null
   })
-  
+  return
 }
 
 module.exports = { buildLogin, buildRegister, registerAccount, accountLogin, buildAccountManagement }
