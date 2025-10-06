@@ -6,7 +6,7 @@ const utilities = require('./index')
   /*  **********************************
   *  Registration Data Validation Rules
   * ********************************* */
-  validate.registationRules = () => {
+  validate.registrationRules = () => {
     return [
       // firstname is required and must be string
       body("account_firstname")
@@ -38,7 +38,7 @@ const utilities = require('./index')
         .trim()
         .notEmpty()
         .isStrongPassword({
-          minLength: 12,
+          minLength: 8,
           minLowercase: 1,
           minUppercase: 1,
           minNumbers: 1,
@@ -48,6 +48,21 @@ const utilities = require('./index')
     ]
   }
 
+  /* ********************************
+  * Login Data Validation Rules
+  * ******************************* */
+  validate.loginRules = () => {
+    return [
+      body('account_email')
+        .trim()
+        .isEmail()
+        .withMessage('A valid email is required.'),
+      body('account_password')
+        .trim()
+        .notEmpty()
+        .withMessage('Password is required.')
+    ]
+  }
 
   /* ******************************
  * Check data and return errors or continue to registration
@@ -69,6 +84,22 @@ validate.checkRegData = async (req, res, next) => {
     return
   }
   next()
+}
+
+validate.checkLoginData = async (req, res, next) => {
+  const { account_email } = req.body
+  let errors = []
+  errors = validationResult(req)
+  if (!errors.isEmpty()) {
+    let nav = await utilities.getNav()
+    res.render("account/login", {
+      errors,
+      title: "Login",
+      nav,
+      account_email,
+    })
+    return
+  }
 }
 
 module.exports = validate

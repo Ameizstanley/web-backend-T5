@@ -17,6 +17,7 @@ const session = require("express-session")
 const pool = require('./database/')
 const accountRoute = require('./routes/accountRoute')
 // const bodyParser = require("body-parser")
+const cookieParser = require("cookie-parser")
 
 
 
@@ -57,6 +58,7 @@ app.set("layout", "./layouts/layout") // not at views root
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+app.use(cookieParser())
 /* ***********************
  * Routes
  *************************/
