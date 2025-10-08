@@ -28,6 +28,11 @@ const cookieParser = require("cookie-parser")
 /* ***********************
  * Middleware
  * ************************/
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(cookieParser())
+
  app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -55,10 +60,9 @@ app.set("layout", "./layouts/layout") // not at views root
 // app.use(bodyParser.json())
 // app.use(bodyParser.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
-app.use(cookieParser())
+app.use(utilities.checkJWTToken)
+
 /* ***********************
  * Routes
  *************************/
@@ -69,6 +73,7 @@ app.get("/", utilities.handleErrors(baseController.buildHome));
 app.use(static)
 app.use('/inv', inventoryRoute)
 app.use('/account', accountRoute)
+
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

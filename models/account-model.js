@@ -1,4 +1,5 @@
 const pool = require('../database')
+const bcrypt = require('bcryptjs');
 
 
 /* *****************************
@@ -10,9 +11,10 @@ async function registerAccount(
     account_lastname,
     account_email,
     account_password){
+    const hashedPassword = await bcrypt.hash(account_password, 10);
   try {
     const sql = "INSERT INTO account (account_firstname, account_lastname, account_email, account_password, account_type) VALUES ($1, $2, $3, $4, 'Client') RETURNING *"
-    return await pool.query(sql, [account_firstname, account_lastname, account_email, account_password])
+    return await pool.query(sql, [account_firstname, account_lastname, account_email, hashedPassword])
   } catch (error) {
     return error.message
   }

@@ -18,11 +18,13 @@ router.post(
 router.get('/register', Util.handleErrors (accountController.buildRegister))
 
 router.post(
-    '/register', 
+    '/register',
     regValidate.registrationRules(),
     regValidate.checkRegData,  
     Util.handleErrors(accountController.registerAccount))
 
-router.get('/', Util.handleErrors(accountController.buildAccountManagement))
+router.get('/', 
+    Util.checkLogin,
+    Util.handleErrors(accountController.buildAccountManagement))
 
 module.exports = router

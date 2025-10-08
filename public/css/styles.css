@@ -328,3 +328,278 @@ img {
         color: #764ba2;
         text-decoration: underline;
     }
+
+
+
+
+
+  
+  /* ============================================
+   Inventory Display Table Styles
+   ============================================ */
+
+.inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  font-family: 'Arial', sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Table Header */
+.inventoryDisplay thead {
+  background-color: aqua;
+  color: #ffffff;
+  text-align: left;
+  font-weight: bold;
+}
+
+.inventoryDisplay thead tr {
+  border-bottom: 3px solid #5568d3;
+}
+
+.inventoryDisplay thead th {
+  padding: 15px 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 14px;
+}
+
+/* Table Body */
+.inventoryDisplay tbody tr {
+  border-bottom: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.inventoryDisplay tbody tr:hover {
+  background-color: #f8f9ff;
+  transform: scale(1.01);
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.1);
+}
+
+.inventoryDisplay tbody tr:last-child {
+  border-bottom: none;
+}
+
+.inventoryDisplay tbody td {
+  padding: 15px 20px;
+  color: #333;
+  font-size: 14px;
+}
+
+/* Alternating Row Colors */
+.inventoryDisplay tbody tr:nth-child(even) {
+  background-color: #f9f9fb;
+}
+
+.inventoryDisplay tbody tr:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* Links/Buttons in Table */
+.inventoryDisplay a {
+  color: #667eea;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.inventoryDisplay a:hover {
+  color: #764ba2;
+  background-color: #f0f0f8;
+}
+
+/* Action Links (Modify/Delete) */
+.inventoryDisplay td a {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 6px 12px;
+  border-radius: 5px;
+  font-size: 13px;
+  transition: all 0.3s ease;
+}
+
+/* Modify Link */
+.inventoryDisplay td a:first-child,
+.inventoryDisplay td a[title*="modify"],
+.inventoryDisplay td a[href*="edit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: 1px solid #45a049;
+}
+
+.inventoryDisplay td a:first-child:hover,
+.inventoryDisplay td a[title*="modify"]:hover,
+.inventoryDisplay td a[href*="edit"]:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.3);
+}
+
+/* Delete Link */
+.inventoryDisplay td a:last-child,
+.inventoryDisplay td a[title*="delete"],
+.inventoryDisplay td a[href*="delete"] {
+  background-color: #f44336;
+  color: white;
+  border: 1px solid #da190b;
+  margin-right: 0;
+}
+
+.inventoryDisplay td a:last-child:hover,
+.inventoryDisplay td a[title*="delete"]:hover,
+.inventoryDisplay td a[href*="delete"]:hover {
+  background-color: #da190b;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(244, 67, 54, 0.3);
+}
+
+/* Empty Table Message */
+.inventoryDisplay tbody tr td[colspan] {
+  text-align: center;
+  padding: 40px;
+  color: #999;
+  font-style: italic;
+  font-size: 16px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .inventoryDisplay {
+    font-size: 14px;
+  }
+
+  .inventoryDisplay thead {
+    display: none;
+  }
+
+  .inventoryDisplay tbody tr {
+    display: block;
+    margin-bottom: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 10px;
+  }
+
+  .inventoryDisplay tbody td {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .inventoryDisplay tbody td:last-child {
+    border-bottom: none;
+  }
+
+  .inventoryDisplay tbody td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #667eea;
+    margin-right: 10px;
+  }
+
+  .inventoryDisplay td a {
+    margin: 5px 5px 5px 0;
+  }
+}
+
+/* Loading State */
+.inventoryDisplay.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.inventoryDisplay.loading::after {
+  content: "Loading...";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  color: #667eea;
+  font-weight: bold;
+}
+
+/* Price Formatting */
+.inventoryDisplay td[data-type="price"],
+.inventoryDisplay .price {
+  font-weight: 600;
+  color: #2c5f2d;
+}
+
+/* Year/Miles Formatting */
+.inventoryDisplay td[data-type="year"],
+.inventoryDisplay td[data-type="miles"] {
+  color: #666;
+  font-weight: 500;
+}
+
+/* Vehicle Name/Make-Model */
+.inventoryDisplay td:first-child {
+  font-weight: 600;
+  color: #333;
+}
+
+/* Scrollable Table Container */
+.table-container {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+.table-container .inventoryDisplay {
+  margin: 0;
+}
+
+/* Additional Styling for Better UX */
+.inventoryDisplay caption {
+  caption-side: top;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  text-align: left;
+  background-color: #f8f9ff;
+  border-radius: 8px 8px 0 0;
+}
+
+/* Focus State for Accessibility */
+.inventoryDisplay a:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Print Styles */
+@media print {
+  .inventoryDisplay {
+    box-shadow: none;
+    border: 1px solid #000;
+  }
+
+  .inventoryDisplay thead {
+    background: #f0f0f0 !important;
+    color: #000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .inventoryDisplay tbody tr:hover {
+    background-color: transparent !important;
+  }
+
+  .inventoryDisplay a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  .inventoryDisplay td a[href*="delete"],
+  .inventoryDisplay td a[href*="edit"] {
+    display: none;
+  }
+}
