@@ -42,4 +42,8 @@ router.get('/edit/:inv_id', Util.handleErrors(invController.buildEditInventoryVi
 //to handle the update inventory post
 router.post('/update/', Util.handleErrors(invController.updateInventory))
 
+router.get('/delete/:inv_id', Util.handleErrors(invController.buildDeleteInventoryView));
+
+router.post('/delete/', Util.handleErrors(invController.deleteInventory))
+
 module.exports = router;
