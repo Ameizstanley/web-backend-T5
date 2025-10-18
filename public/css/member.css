@@ -1,0 +1,624 @@
+/* Membership Form Styles */
+.member-form {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.member-form fieldset {
+  border: 2px solid #dee2e6;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  background: white;
+  transition: all 0.3s ease;
+}
+
+.member-form fieldset:hover {
+  border-color: #007bff;
+  box-shadow: 0 5px 15px rgba(0, 123, 255, 0.1);
+}
+
+.member-form legend {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #2c3e50;
+  padding: 0 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.member-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #495057;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.member-form label:hover {
+  color: #007bff;
+}
+
+.member-form input[type="text"],
+.member-form input[type="number"],
+.member-form textarea {
+  width: 100%;
+  padding: 12px 16px;
+  margin-bottom: 1.5rem;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: #f8f9fa;
+  box-sizing: border-box;
+}
+
+.member-form input[type="text"]:focus,
+.member-form input[type="number"]:focus,
+.member-form textarea:focus {
+  outline: none;
+  border-color: #007bff;
+  background: white;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.member-form textarea {
+  resize: vertical;
+  min-height: 80px;
+  font-family: inherit;
+}
+
+.member-form input:required,
+.member-form textarea:required {
+  border-left: 4px solid #28a745;
+}
+
+.member-form input:invalid:not(:focus),
+.member-form textarea:invalid:not(:focus) {
+  border-left: 4px solid #dc3545;
+}
+
+.member-form button[type="submit"] {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 1rem;
+}
+
+.member-form button[type="submit"]:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3);
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+.member-form button[type="submit"]:active {
+  transform: translateY(-1px);
+}
+
+/* Form Grid Layout for better organization */
+.member-form fieldset {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .member-form fieldset {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .member-form fieldset > * {
+    grid-column: 1 / -1;
+  }
+  
+  .member-form fieldset > label,
+  .member-form fieldset > input,
+  .member-form fieldset > textarea {
+    grid-column: span 1;
+  }
+  
+  /* Make textareas and full-width elements span both columns */
+  .member-form textarea,
+  .member-form legend {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Custom styling for specific elements */
+.member-form input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.member-form input[type="number"]::-webkit-outer-spin-button,
+.member-form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Tooltip styles for title attributes */
+.member-form input:hover::after,
+.member-form textarea:hover::after {
+  content: attr(title);
+  position: absolute;
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  z-index: 1000;
+  white-space: pre-wrap;
+  max-width: 200px;
+}
+
+/* Loading state */
+.member-form.loading button[type="submit"] {
+  background: #6c757d;
+  cursor: not-allowed;
+}
+
+.member-form.loading button[type="submit"]::after {
+  content: " ...";
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0%, 100% { content: " ."; }
+  33% { content: " .."; }
+  66% { content: " ..."; }
+}
+
+/* Success state */
+.member-form.success fieldset {
+  border-color: #28a745;
+}
+
+/* Error state */
+.member-form.error fieldset {
+  border-color: #dc3545;
+}
+
+/* Focus indicators for accessibility */
+.member-form input:focus-visible,
+.member-form textarea:focus-visible,
+.member-form button:focus-visible {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+
+
+/* Enhanced CSS with validation styles */
+.error-message {
+  display: none;
+  color: #dc3545;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+.form-input.invalid,
+.form-textarea.invalid {
+  border-color: #dc3545;
+  background-color: #fff5f5;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.1);
+}
+
+.form-input.valid,
+.form-textarea.valid {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+.form-group {
+  position: relative;
+}
+
+/* Real-time validation feedback */
+.form-input:focus.invalid,
+.form-textarea:focus.invalid {
+  border-color: #dc3545;
+  box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2);
+}
+
+/* Character counter */
+.char-counter {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 0.75rem;
+  color: #6c757d;
+  background: white;
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+
+.char-counter.warning {
+  color: #ffc107;
+}
+
+.char-counter.error {
+  color: #dc3545;
+}
+
+/* Loading state for async validation */
+.form-input.validating {
+  border-color: #ffc107;
+  background-color: #fffbf0;
+}
+
+/* Success message */
+.submission-success {
+  display: none;
+  background: #d4edda;
+  color: #155724;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border: 1px solid #c3e6cb;
+}
+
+
+
+.member-cta {
+  display: inline-block;
+  padding: 15px 32px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #2c3e50;
+  text-decoration: none;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-cta::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.member-cta:hover::before {
+  left: 100%;
+}
+
+.member-cta:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+/* ============================================
+   Premium Vehicles Showcase Styles
+   ============================================ */
+
+.premium-showcase {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.showcase-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.showcase-header h1 {
+    font-size: 3em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.showcase-header p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+/* Vehicle Cards Grid */
+.vehicles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.vehicle-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    position: relative;
+}
+
+.vehicle-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+}
+
+.vehicle-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 0.9em;
+    z-index: 10;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.vehicle-image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.vehicle-content {
+    padding: 25px;
+}
+
+.vehicle-name {
+    font-size: 1.6em;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.vehicle-category {
+    color: #667eea;
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.vehicle-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Vehicle Specifications */
+.vehicle-specs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.spec-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px;
+    background: #f8f9ff;
+    border-radius: 8px;
+    font-size: 0.9em;
+}
+
+.spec-icon {
+    font-size: 1.2em;
+}
+
+/* Vehicle Features */
+.vehicle-features {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.features-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.features-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.feature-tag {
+    background: #667eea;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+}
+
+/* Price Section */
+.price-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.price {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.price-label {
+    font-size: 0.7em;
+    color: #999;
+    font-weight: normal;
+}
+
+/* ============================================
+   Electric Vehicles Section
+   ============================================ */
+
+.electric-section {
+    margin-top: 60px;
+    padding: 40px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    color: white;
+}
+
+.electric-section h2 {
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.electric-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.electric-card {
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.2);
+    transition: all 0.3s;
+}
+
+.electric-card:hover {
+    background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
+}
+
+.electric-card h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.electric-card .range {
+    font-size: 2em;
+    font-weight: bold;
+    color: #FFD700;
+    margin: 15px 0;
+}
+
+.electric-features {
+    list-style: none;
+    margin-top: 15px;
+    padding: 0;
+}
+
+.electric-features li {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.electric-features li:last-child {
+    border-bottom: none;
+}
+
+/* ============================================
+   Responsive Design
+   ============================================ */
+
+@media (max-width: 768px) {
+    .premium-showcase {
+        padding: 20px 10px;
+    }
+
+    .showcase-header h1 {
+        font-size: 2em;
+    }
+
+    .showcase-header p {
+        font-size: 1em;
+    }
+
+    .vehicles-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .vehicle-specs {
+        grid-template-columns: 1fr;
+    }
+
+    .vehicle-badge {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+
+    .electric-section {
+        padding: 25px 15px;
+    }
+
+    .electric-section h2 {
+        font-size: 1.8em;
+    }
+
+    .electric-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .price {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .showcase-header h1 {
+        font-size: 1.5em;
+    }
+
+    .vehicle-name {
+        font-size: 1.3em;
+    }
+
+    .vehicle-content {
+        padding: 20px;
+    }
+
+    .feature-tag {
+        font-size: 0.75em;
+        padding: 4px 10px;
+    }
+}

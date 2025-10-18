@@ -1,0 +1,105 @@
+<% if (title) {%>
+    <h1><%= title %></h1>
+    <% } %>
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<h2 class="member-heading">
+  Become a member Today
+  <span>Join our exclusive community</span>
+</h2>
+
+<form action="/membership/member-register" method="post" class="member-form">
+  <fieldset class="membership-info">
+    <legend>Membership Information</legend>
+
+    <div class="form-group">
+      <label for="member_firstname">First Name:</label>
+      <input type="text" id="member_firstname" name="member_firstname" maxlength="100" 
+             title="Your first name" required class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label for="member_lastname">Last Name:</label>
+      <input type="text" id="member_lastname" name="member_lastname" maxlength="100" 
+             title="Your last name" required class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label for="member_contact">Contact Details:</label>
+      <input type="text" id="member_contact" name="member_contact" maxlength="100" 
+             title="Your contact details can be email address, phone number, or fax" 
+             required class="form-input">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="member_homeaddress">Home Address:</label>
+      <textarea id="member_homeaddress" name="member_homeaddress" rows="3" 
+                title="Your complete home address" required class="form-textarea"></textarea>
+    </div>
+
+    <div class="form-group full-width">
+      <label for="member_description">Why do you want to become a member?</label>
+      <textarea id="member_description" name="member_description" rows="3" 
+                title="Please share your reasons for wanting to join our exclusive club" 
+                required class="form-textarea"></textarea>
+    </div>
+  </fieldset>
+
+  <fieldset class="financial-info">
+    <legend>Financial Information</legend>
+
+    <div class="form-group">
+      <label for="payment_method">Payment Method:</label>
+      <input type="text" id="payment_method" name="payment_method" maxlength="50" 
+             placeholder="e.g., Visa, MasterCard" required class="form-input">
+    </div>
+
+    <div class="form-group full-width">
+      <label for="billing_address">Billing Address:</label>
+      <textarea id="billing_address" name="billing_address" rows="3" 
+                title="Address associated with your payment method" 
+                required class="form-textarea"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="billing_city">City:</label>
+      <input type="text" id="billing_city" name="billing_city" maxlength="100" 
+             required class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label for="billing_state">State:</label>
+      <input type="text" id="billing_state" name="billing_state" maxlength="50" 
+             required class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label for="net_income">Net Income ($):</label>
+      <input type="number" id="net_income" name="net_income" 
+             title="Your annual net income in US dollars" 
+             required class="form-input">
+    </div>
+
+    <div class="form-group">
+      <label for="card_last_four">Last 4 Digits of Card:</label>
+      <input type="number" id="card_last_four" name="card_last_four" maxlength="4" 
+             min="0" max="9999" 
+             title="Last 4 digits of your payment card for verification" 
+             required class="form-input">
+    </div>
+  </fieldset>
+
+  <div class="form-actions">
+    <button type="submit" class="submit-btn">
+      Submit Membership Application
+    </button>
+  </div>
+</form>

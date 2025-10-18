@@ -254,11 +254,20 @@ async function buildAccountManagement(req, res, next) {
 
 async function buildUpdateAccount(req, res, next) {
   let nav = await utilities.getNav()
+  const account_id = req.params.account_id;
+  const accountData = await accountModel.getAccountById(account_id);
+
+  if (!accountData) {
+    req.flash('notice', 'Account not found.');
+    return res.redirect('/account');
+  }
+  
   res.render('account/update', {
     title: 'Update Account',
     nav,
-    errors: null
-  })
+    errors: null,
+    accountData: accountData // Pass the account data
+  });
   
 }
 
@@ -356,4 +365,5 @@ module.exports = {
   changePassword,
   logout
 }
+
 

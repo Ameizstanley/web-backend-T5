@@ -158,6 +158,16 @@ Util.checkJWTToken = (req, res, next) => {
   }
  }
 
+
+ Util.checkMemberLogin = (req, res, next) => {
+  if (res.locals.loggedin) {
+    next()
+  } else {
+    req.flash("notice", "Please log in.")
+    return res.redirect("/membership/member-login")
+  }
+ }
+
 /* ****************************************
  * Middleware to check account type (Employee or Admin only)
  **************************************** */

@@ -140,7 +140,7 @@ validate.checkUpdateDate = async (req, res, next) => {
   errors = validationResult(req)
   if (!errors.isEmpty()) {
     let nav = await utilities.getNav()
-    res.render("account/account-edit", {
+    res.render("account/update", {
       errors,
       title: "Update Account",
       nav,
@@ -187,6 +187,7 @@ validate.checkPasswordData = async (req, res, next) => {
     })
     return
   }
+   next()
 }
 
 

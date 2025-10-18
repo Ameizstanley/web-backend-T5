@@ -34,7 +34,7 @@ router.get('/update/:account_id',
      Util.handleErrors(accountController.buildUpdateAccount));
 
      // Process account update
-router.post('/update/', 
+router.post('/update', 
     regValidate.updateAccountRules(),
     regValidate.checkUpdateDate,
     Util.handleErrors(accountController.updateAccount)

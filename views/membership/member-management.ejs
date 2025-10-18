@@ -1,0 +1,410 @@
+<% if (title) {%>
+    <h1><%= title %></h1>
+    <% } %>
+<%- messages() %>
+
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+
+
+<section class="premium-showcase">
+  
+
+<div class="premium-showcase">
+        <!-- Header -->
+        <div class="showcase-header">
+            <h1>🏆 Premium Luxury Vehicles</h1>
+            <p>Experience Excellence: The World's Most Prestigious Automobiles</p>
+        </div>
+
+        <!-- Premium Vehicles Grid -->
+        <div class="vehicles-grid">
+            <!-- Mercedes-Benz S-Class -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">LUXURY SEDAN</span>
+                <div class="vehicle-image">
+                  <img src="https://autopro8.mediacdn.vn/134505113543774208/2024/4/30/2025-mercedes-s-class-facelift-0-1-1714449191948626211089.jpg" alt="S-Class 2024">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Mercedes-Benz</div>
+                    <h3 class="vehicle-name">S-Class 2024</h3>
+                    <p class="vehicle-description">
+                        The pinnacle of luxury sedans. Unmatched comfort, cutting-edge technology, 
+                        and refined performance in a timeless package.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>3.0L Inline-6 Turbo</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>429 HP</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">⏱️</span>
+                            <span>0-60 in 4.9s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">💺</span>
+                            <span>Executive Rear Seats</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Premium Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">MBUX Hyperscreen</span>
+                            <span class="feature-tag">4MATIC AWD</span>
+                            <span class="feature-tag">Active Massage Seats</span>
+                            <span class="feature-tag">Burmester 3D Sound</span>
+                            <span class="feature-tag">Air Suspension</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $115,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rolls-Royce Phantom -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">ULTRA LUXURY</span>
+                <div class="vehicle-image">
+                  <img src="https://th.bing.com/th/id/R.4e1149392f54f0a6a7e0d96f9a90af8a?rik=Dg4%2boYxWbJspnA&riu=http%3a%2f%2fcdn.bmwblog.com%2fwp-content%2fuploads%2f2017%2f10%2fRolls-Royce-Phantom-VIII-57.jpg&ehk=Be5nHhfGnvCzGVUBuR%2bSiMQI51pWz%2fsryDu7E5UwS04%3d&risl=&pid=ImgRaw&r=0" alt="Phantom VIII">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Rolls-Royce</div>
+                    <h3 class="vehicle-name">Phantom VIII</h3>
+                    <p class="vehicle-description">
+                        The ultimate expression of automotive luxury. Handcrafted perfection 
+                        with bespoke customization and unparalleled prestige.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>6.75L V12 Twin-Turbo</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>563 HP</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">👑</span>
+                            <span>Bespoke Interior</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🎭</span>
+                            <span>Starlight Headliner</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Exclusive Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">Magic Carpet Ride</span>
+                            <span class="feature-tag">Spirit of Ecstasy</span>
+                            <span class="feature-tag">Gallery Display</span>
+                            <span class="feature-tag">Suicide Doors</span>
+                            <span class="feature-tag">Champagne Cooler</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $460,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bentley Continental GT -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">GRAND TOURER</span>
+                <div class="vehicle-image">
+                  <img src="https://thvnext.bing.com/th/id/OIP.oD3kTkphJOBiN6lb1gB-5wHaDD?w=336&h=144&c=7&r=0&o=7&cb=12&dpr=1.5&pid=1.7&rm=3&ucfimg=1" alt="Continental GT Speed">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Bentley</div>
+                    <h3 class="vehicle-name">Continental GT Speed</h3>
+                    <p class="vehicle-description">
+                        The perfect blend of luxury and performance. British craftsmanship 
+                        meets exhilarating power in this iconic grand tourer.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>6.0L W12 Twin-Turbo</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>650 HP</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">⏱️</span>
+                            <span>0-60 in 3.5s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🎯</span>
+                            <span>Top Speed 208 mph</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Signature Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">Rotating Display</span>
+                            <span class="feature-tag">Naim Audio</span>
+                            <span class="feature-tag">Diamond Quilting</span>
+                            <span class="feature-tag">AWD System</span>
+                            <span class="feature-tag">Active Exhaust</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $275,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Porsche Taycan Turbo S -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">ELECTRIC PERFORMANCE</span>
+                <div class="vehicle-image">
+                  <img src="https://tse2.mm.bing.net/th/id/OIP.at1qiDFgi49M060wqnCwbQHaE8?cb=12&pid=ImgDet&ucfimg=1&w=474&h=316&rs=1&o=7&rm=3" alt="Taycan Turbo S">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Porsche</div>
+                    <h3 class="vehicle-name">Taycan Turbo S</h3>
+                    <p class="vehicle-description">
+                        Electric performance redefined. Porsche's first all-electric sports car 
+                        delivers breathtaking acceleration with zero emissions.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>Dual Motor AWD</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>750 HP (w/ Launch)</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">⏱️</span>
+                            <span>0-60 in 2.6s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🔋</span>
+                            <span>238 Mile Range</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Tech Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">800V Architecture</span>
+                            <span class="feature-tag">Porsche Active Aero</span>
+                            <span class="feature-tag">Adaptive Air Suspension</span>
+                            <span class="feature-tag">Sport Chrono Package</span>
+                            <span class="feature-tag">Launch Control</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $185,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aston Martin DBX707 -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">LUXURY SUV</span>
+                <div class="vehicle-image">
+                  <img src="https://th.bing.com/th/id/R.7f97125bf840e2ce3894be4653feabaa?rik=rbuuKbeCVxLopw&pid=ImgRaw&r=0" alt="Aston Martin DBX707">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Aston Martin</div>
+                    <h3 class="vehicle-name">DBX707</h3>
+                    <p class="vehicle-description">
+                        The world's most powerful luxury SUV. British elegance meets 
+                        supercar performance in this stunning crossover.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>4.0L V8 Twin-Turbo</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>707 HP</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">⏱️</span>
+                            <span>0-60 in 3.1s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">👨‍👩‍👧‍👦</span>
+                            <span>5 Seater</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Performance Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">Active Roll Control</span>
+                            <span class="feature-tag">Carbon Ceramic Brakes</span>
+                            <span class="feature-tag">Electronic Rear Diff</span>
+                            <span class="feature-tag">Sport+ Mode</span>
+                            <span class="feature-tag">Alcantara Interior</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $235,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lamborghini Urus -->
+            <div class="vehicle-card">
+                <span class="vehicle-badge">SUPER SUV</span>
+                <div class="vehicle-image">
+                  <img src="https://thvnext.bing.com/th/id/OIP.cfsYweByhZKkzg8qQ5iubwHaDb?w=344&h=161&c=7&r=0&o=7&cb=12&dpr=1.5&pid=1.7&rm=3&ucfimg=1" alt="Urus Performante">
+                </div>
+                <div class="vehicle-content">
+                    <div class="vehicle-category">Lamborghini</div>
+                    <h3 class="vehicle-name">Urus Performante</h3>
+                    <p class="vehicle-description">
+                        The first Super Sport Utility Vehicle. Italian passion meets 
+                        everyday usability in this aggressive luxury SUV.
+                    </p>
+                    
+                    <div class="vehicle-specs">
+                        <div class="spec-item">
+                            <span class="spec-icon">⚡</span>
+                            <span>4.0L V8 Twin-Turbo</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🏎️</span>
+                            <span>666 HP</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">⏱️</span>
+                            <span>0-60 in 3.1s</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-icon">🎯</span>
+                            <span>Top Speed 190 mph</span>
+                        </div>
+                    </div>
+
+                    <div class="vehicle-features">
+                        <div class="features-title">Distinctive Features:</div>
+                        <div class="features-list">
+                            <span class="feature-tag">Hexagonal Design</span>
+                            <span class="feature-tag">Tamburo Drive Modes</span>
+                            <span class="feature-tag">Carbon Fiber Package</span>
+                            <span class="feature-tag">Rally Drive Mode</span>
+                            <span class="feature-tag">Akrapovic Exhaust</span>
+                        </div>
+                    </div>
+
+                    <div class="price-section">
+                        <div class="price">
+                            $260,000
+                            <div class="price-label">Starting MSRP</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Electric Vehicles Section -->
+        <div class="electric-section">
+            <h2>⚡ Premium Electric Vehicles - The Future is Now</h2>
+            <div class="electric-grid">
+                <div class="electric-card">
+                    <h3>Tesla Model S Plaid</h3>
+                    <div class="range">405 mi</div>
+                    <ul class="electric-features">
+                        <li>🏎️ 1,020 HP Tri-Motor</li>
+                        <li>⚡ 0-60 in 1.99s</li>
+                        <li>🎮 Gaming Computer</li>
+                        <li>🚀 Top Speed 200 mph</li>
+                        <li>💰 Starting at $108,490</li>
+                    </ul>
+                </div>
+
+                <div class="electric-card">
+                    <h3>Lucid Air Sapphire</h3>
+                    <div class="range">427 mi</div>
+                    <ul class="electric-features">
+                        <li>🏎️ 1,234 HP Tri-Motor</li>
+                        <li>⚡ 0-60 in 1.89s</li>
+                        <li>🎵 Surreal Sound System</li>
+                        <li>💎 Luxury Interior</li>
+                        <li>💰 Starting at $249,000</li>
+                    </ul>
+                </div>
+
+                <div class="electric-card">
+                    <h3>Mercedes-Benz EQS</h3>
+                    <div class="range">350 mi</div>
+                    <ul class="electric-features">
+                        <li>🏎️ 516 HP Dual Motor</li>
+                        <li>⚡ 0-60 in 3.8s</li>
+                        <li>📱 MBUX Hyperscreen</li>
+                        <li>🌟 Luxury EV Leader</li>
+                        <li>💰 Starting at $104,400</li>
+                    </ul>
+                </div>
+
+                <div class="electric-card">
+                    <h3>BMW iX M60</h3>
+                    <div class="range">288 mi</div>
+                    <ul class="electric-features">
+                        <li>🏎️ 619 HP Dual Motor</li>
+                        <li>⚡ 0-60 in 3.6s</li>
+                        <li>🎨 Curved Display</li>
+                        <li>♻️ Sustainable Materials</li>
+                        <li>💰 Starting at $108,900</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</section>
+
+
+
+
+
+
